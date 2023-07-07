@@ -3,21 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
     [Header("Login UI")]
     public InputField playerNameInput;
+    public GameObject uI_LoginGo; //Go = Gameobject
+
+    [Header("Lobby UI")]
+    public GameObject uI_LobbyGo;
+    public GameObject uI_3dGo;
+
+    [Header("Connection Status UI")]
+    public GameObject uI_ConnectionStatusGo;
+    public TextMeshProUGUI connectionsStatusText;
+    public bool showStatus;
+
 
     #region UNITY methods
     void Start()
     {
-        
+        uI_LobbyGo.SetActive(false);
+        uI_3dGo.SetActive(false);
+        uI_ConnectionStatusGo.SetActive(false);
+
+        uI_LoginGo.SetActive(true);
     }
 
     void Update()
     {
-        
+        if (showStatus)
+        {
+            connectionsStatusText.text = "Status: " + PhotonNetwork.NetworkClientState;
+        }
     }
 
     #endregion
@@ -30,6 +50,14 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
         if (!string.IsNullOrEmpty(playerName))
         {
+            uI_LobbyGo.SetActive(false);
+            uI_3dGo.SetActive(false);
+            uI_LoginGo.SetActive(false);
+
+            uI_ConnectionStatusGo.SetActive(true);
+
+            showStatus = true;
+
             if (!PhotonNetwork.IsConnected)
             {
                 PhotonNetwork.LocalPlayer.NickName = playerName;
@@ -44,6 +72,12 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public void OnQuickMatchClicked()
+    {
+        //SceneManager.LoadScene("Scene_Loading");
+        SceneLoader.Instance.LoadScene("Scene_PlayerSelection"); 
+    }
+
     #endregion
 
     #region  PHOTON Callbacks Methods
@@ -55,6 +89,12 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log(PhotonNetwork.LocalPlayer.NickName + " is connected to Photon server");
+
+        uI_LoginGo.SetActive(false);
+        uI_ConnectionStatusGo.SetActive(false);
+
+        uI_LobbyGo.SetActive(true);
+        uI_3dGo.SetActive(true);
     }
 
 
