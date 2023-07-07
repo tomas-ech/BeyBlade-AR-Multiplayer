@@ -212,8 +212,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 405464680}
+        m_TargetAssemblyTypeName: PlayerSelectionManager, Assembly-CSharp
         m_MethodName: OnBattleButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -554,8 +554,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 405464680}
+        m_TargetAssemblyTypeName: PlayerSelectionManager, Assembly-CSharp
         m_MethodName: OnReSelectButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -812,6 +812,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSwitcher: {fileID: 1158278241}
+  playerNumber: 0
+  playerModel_Text: {fileID: 2010573073}
+  spinnerModels:
+  - {fileID: 1327619905}
+  - {fileID: 882062676}
+  - {fileID: 174618834}
+  - {fileID: 955095336}
+  uI_Selection: {fileID: 1325910398}
+  uI_AfterSelection: {fileID: 347055307}
   nextBtn: {fileID: 1289593102}
   previousBtn: {fileID: 1017666831}
 --- !u!4 &405464681
@@ -2296,8 +2305,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 405464680}
+        m_TargetAssemblyTypeName: PlayerSelectionManager, Assembly-CSharp
         m_MethodName: OnBackButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -2704,8 +2713,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 405464680}
+        m_TargetAssemblyTypeName: PlayerSelectionManager, Assembly-CSharp
         m_MethodName: OnSelectButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -3766,7 +3775,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: attack
+  m_text: attacker
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dac26dc60cc21c248b15a0d377e0dc4c, type: 2}
   m_sharedMaterial: {fileID: -3996687209750109849, guid: dac26dc60cc21c248b15a0d377e0dc4c, type: 2}
