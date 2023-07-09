@@ -408,6 +408,7 @@ GameObject:
   - component: {fileID: -3316011316968080873}
   - component: {fileID: 584261703186914510}
   - component: {fileID: 8040473702507141223}
+  - component: {fileID: -7845397456041977213}
   m_Layer: 0
   m_Name: Player3_Defender
   m_TagString: Player
@@ -514,8 +515,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 8080913034916495381}
-  speed: 2
-  maxVelocityChange: 4
+  speed: 1
+  maxVelocityChange: 1.5
   tiltAmount: 10
 --- !u!114 &7589745768290926239
 MonoBehaviour:
@@ -580,6 +581,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1f08d433325b004cb81a8850a82d266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncVelocity: 1
+  syncAngularVelocity: 1
+  isTeleportEnabled: 1
+  teleportIfDistanceisGreaterThan: 1
+--- !u!114 &-7845397456041977213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2269595059983960058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776ce70d2d746254b9053042d8435277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinnerScript: {fileID: 7589745768290926239}
+  spinSpeedBar: {fileID: 2269595059424446845}
+  spinSpeedText: {fileID: 512058580104729394}
 --- !u!1 &2269595060150874238
 GameObject:
   m_ObjectHideFlags: 0
