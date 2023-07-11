@@ -598,8 +598,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinnerScript: {fileID: 7589745768290926239}
+  uI_3dGo: {fileID: 2269595059476436724}
+  uI_DeathPrefab: {fileID: 3593783272886976281, guid: 0367e5d2c0c49da4b80c7fe1c169056c, type: 3}
   spinSpeedBar: {fileID: 2269595059424446845}
   spinSpeedText: {fileID: 512058580104729394}
+  damageCoefficient: 0.04
+  isAttacker: 0
+  isDefender: 0
+  doDamageCoefficientAttacker: 10
+  getDamagedCoefficientAttacker: 1.2
+  doDamageCoefficientDefender: 0.75
+  getDamagedCoefficientDefender: 0.2
 --- !u!1 &2269595060150874238
 GameObject:
   m_ObjectHideFlags: 0
