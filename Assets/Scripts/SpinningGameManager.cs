@@ -25,7 +25,7 @@ public class SpinningGameManager : MonoBehaviourPunCallbacks
         
     }
 
-    #region UI Callbacks
+    #region UI Callbacks Methods
     public void JoinRandomRoom()
     {
         uI_InformText.text = "Searching rooms...";
@@ -33,6 +33,18 @@ public class SpinningGameManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRandomRoom();
 
         searchGamesGo.SetActive(false);
+    }
+
+    public void OnQuitMatchButtonClicked()
+    {
+        if (PhotonNetwork.InRoom)
+        {
+            PhotonNetwork.LeaveRoom();
+        }
+        else
+        {
+            SceneLoader.Instance.LoadScene("Scene_Lobby");
+        }
     }
 
     #endregion
@@ -70,6 +82,11 @@ public class SpinningGameManager : MonoBehaviourPunCallbacks
         uI_InformText.text = newPlayer.NickName + " joined to " + PhotonNetwork.CurrentRoom.Name + " Player count: " + PhotonNetwork.CurrentRoom.PlayerCount;
 
         StartCoroutine(DeactivateAfterSeconds(uI_InformPanelGo, 2f));
+    }
+
+    public override void OnLeftRoom()
+    {
+        SceneLoader.Instance.LoadScene("Scene_Lobby");
     }
 
     #endregion

@@ -104,6 +104,12 @@ public class BattleSystem : MonoBehaviourPun
             if (isAttacker)
             {
                 amount *= getDamagedCoefficientAttacker;
+
+                if (amount > 1000)
+                {
+                    amount = 400f;
+                }
+                
             }
             else if (isDefender)
             {
@@ -177,7 +183,7 @@ public class BattleSystem : MonoBehaviourPun
             GetComponent<MovementController>().enabled = false;
         }
 
-        uI_DeathPanelGo.SetActive(true);
+        uI_DeathPanelGo.SetActive(false);
 
         GetComponent<MovementController>().enabled = true;
 
@@ -191,7 +197,7 @@ public class BattleSystem : MonoBehaviourPun
         currentSpinSpeed = spinnerScript.spinSpeed;
 
         spinSpeedBar.fillAmount = currentSpinSpeed / startSpinSpeed;
-        spinSpeedText.text = currentSpinSpeed + " / " + startSpinSpeed;
+        spinSpeedText.text = currentSpinSpeed.ToString("D0") + " / " + startSpinSpeed;
 
         rb.freezeRotation = true;
         transform.rotation = Quaternion.Euler(Vector3.zero);
